@@ -21,7 +21,7 @@ export function FeaturedMovie({ item }) {
         >
           <div className="md:text-6xl text-4xl font-bold">{item.original_name}</div>
           <div className="font-bold md:text-lg text-base mt-4 flex gap-4">
-            <div className="text-green-450">{pontos === 0 ? '70' : pontos}% relevante</div>
+            <div className="text-green-450">{pontos == 0 ? '70' : pontos}% relevante</div>
             <div>{getDate.getFullYear()}</div>
             <div>
               {item.number_of_seasons} temporada
