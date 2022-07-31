@@ -32,7 +32,7 @@ export function NetflixContextProvider({ children }) {
 
   useEffect(() => {
     const scroollListener = () => {
-      if(window.scrollY > 0) {
+      if(window.scrollY > 100) {
         setIsTransparentHeader(false);
       } else {
         setIsTransparentHeader(true);
