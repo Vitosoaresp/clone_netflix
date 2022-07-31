@@ -25,11 +25,11 @@ export function MovieRow({ title, items }) {
   return (
     <div className="mb-[30px] group">
       <h2 className="m-0 ml-[30px] font-bold text-xl">{title}</h2>
-      <div className="absolute w-10 h-56 left-0 z-10 flex items-center justify-center bg-black group-hover:opacity-60 md:opacity-0 opacity-60 cursor-pointer  overflow-hidden transition-all" onClick={handleLeftArrow}>
+      <div className="absolute w-10 h-56 left-0 z-10 flex items-center justify-center backdrop-blur-sm bg-black group-hover:opacity-60 md:opacity-0 opacity-60 cursor-pointer  overflow-hidden transition-all" onClick={handleLeftArrow}>
         <NavigateBefore className="text-5xl" />
       </div>
 
-      <div className="absolute w-10 h-56 right-0 z-10 flex items-center justify-center overflow-hidden bg-black group-hover:opacity-60 md:opacity-0 opacity-60 cursor-pointer transition-all" onClick={handleRightArrow}>
+      <div className="absolute w-10 h-56 right-0 z-10 flex items-center justify-center overflow-hidden bg-black group-hover:opacity-60 backdrop-blur-sm md:opacity-0 opacity-60 cursor-pointer transition-all" onClick={handleRightArrow}>
         <NavigateNext className="text-5xl" />
       </div>
       
