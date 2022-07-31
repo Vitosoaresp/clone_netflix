@@ -3,6 +3,7 @@ import { MovieRow } from './components/MovieRow';
 import { context } from './context/NetflixContext';
 import { FeaturedMovie } from './components/FeaturedMovie';
 import { Header } from './components/Header';
+import { Loading } from './components/Loading';
 
 function App() {
   const { listMovies, featuredData } = useContext(context);
@@ -32,13 +33,7 @@ function App() {
       </footer>
 
       {listMovies.length <= 0 && (
-        <div className="fixed left-0 top-0 z-50 right-0 bottom-0 bg-black flex justify-center items-center">
-          <img
-            src="https://media.filmelier.com/noticias/br/2020/03/Netflix_LoadTime.gif"
-            width="500px"
-            alt="carregando..."
-          />
-        </div>
+        <Loading />
       )}
     </div>
   );
