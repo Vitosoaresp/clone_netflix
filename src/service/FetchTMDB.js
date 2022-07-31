@@ -87,4 +87,11 @@ export default {
     }
     return info;
   },
+  fetchMovieTrailer: async id => {
+    const request = await fetch(
+      `${API_BASE}/tv/${id}/videos?language=pt-BR&api_key=${API_KEY}`
+    );
+    const data = await request.json();
+    return data;
+  },
 };
