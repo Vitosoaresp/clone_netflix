@@ -1,25 +1,21 @@
 import { useState, useEffect } from 'react';
 import FetchTMDB from '../service/FetchTMDB';
-import { MovieTrailer } from './MovieTrailer';
+import { Link } from 'react-router-dom';
 
 export function FeaturedMovie({ item }) {
 
-  const [movieTrailer, setMovieTrailer] = useState(null);
-  const [isPlayingTrailer, setIsPlayingTrailer] = useState(false);
+  const [movieTrailer, setMovieTrailer] = useState([]);
+  const [trailerId, setTrailerId] = useState('');
 
   useEffect(() => {
     const getMovieTrailer = async () => {
       const data = await FetchTMDB.fetchMovieTrailer(item.id);
       setMovieTrailer(data);
+      const getTrailer = data.results.find(item => item.type === 'Trailer');
+      setTrailerId(getTrailer.key);
     }
     getMovieTrailer();
   }, [item]);
-
-  const handlePlayTrailer = () => {
-    if (movieTrailer.results.length > 0) {
-      setIsPlayingTrailer(true);
-    }
-  };
 
   const description = item.overview.length > 200 ? item.overview.substring(0, 200) + '...' : item.overview;
   const getDate = new Date(item.first_air_date);
@@ -59,13 +55,12 @@ export function FeaturedMovie({ item }) {
             >
               + Info
             </a>
-            <a
-              href="#"
+            <Link
+              to={`movie/${movieTrailer.id}/${trailerId}`}
               className="font-bold md:py-3 py-1 md:px-6 px-3 rounded md:text-xl text-base bg-white text-black hover:opacity-70 transition-colors"
-              onClick={handlePlayTrailer}
             >
               ▶ Assistir
-            </a>
+            </Link>
             <a
               href="#"
               className="hover:opacity-70 transition-all font-bold md:py-3 py-1 md:px-6 px-3 rounded md:text-xl text-base bg-[#333] text-white"
@@ -79,8 +74,6 @@ export function FeaturedMovie({ item }) {
           </div>
         </div>
       </div>
-      { isPlayingTrailer && (
-        <MovieTrailer movieId={movieTrailer.results[0].key} /> )}
     </section>
   );
 }
