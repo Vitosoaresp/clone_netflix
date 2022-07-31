@@ -1,7 +1,7 @@
 import { ArrowDropDownRounded, Close, Notifications, SearchOutlined } from '@material-ui/icons';
 import { useContext, useState } from 'react';
 import logo from '../assest/logo.png';
-import profile from '../assest/Profile-avatar.png';
+import profile from '../assest/profile1.png';
 import { context } from '../context/NetflixContext';
 
 export function Header() {
