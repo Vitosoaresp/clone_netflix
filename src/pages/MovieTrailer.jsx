@@ -8,12 +8,12 @@ export function MovieTrailer() {
   return(
     <div className="w-screen h-screen">
       <Link
-        to="/browser"
+        to="/"
         className="fixed top-10 left-6 m-4 text-4xl font-bold text-white"
       >
         <ArrowBack />
       </Link>
-      <iframe src={ `https://www.youtube.com/embed/${key}` } frameborder="0" height="100%" width="100%" />
+      <iframe src={ `https://www.youtube.com/embed/${key}` } height="100%" width="100%" />
     </div>
   );
 }

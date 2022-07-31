@@ -11,8 +11,11 @@ export function FeaturedMovie({ item }) {
     const getMovieTrailer = async () => {
       const data = await FetchTMDB.fetchMovieTrailer(item.id);
       setMovieTrailer(data);
-      const getTrailer = data.results.find(item => item.type === 'Trailer');
-      setTrailerId(getTrailer.key);
+      if (data.results.length > 0) {
+        const getTrailer = data.results.find(item => item.type === 'Trailer');
+        return setTrailerId(getTrailer.key);
+      }
+      setTrailerId(null);
     }
     getMovieTrailer();
   }, [item]);
@@ -55,12 +58,19 @@ export function FeaturedMovie({ item }) {
             >
               + Info
             </a>
-            <Link
+            {trailerId !== null ? (
+              <Link
               to={`movie/${movieTrailer.id}/${trailerId}`}
               className="font-bold md:py-3 py-1 md:px-6 px-3 rounded md:text-xl text-base bg-white text-black hover:opacity-70 transition-colors"
             >
               ▶ Assistir
             </Link>
+            ) : (
+              <button disabled={true} className="font-bold md:py-3 py-1 md:px-6 px-3 rounded md:text-xl text-base bg-white text-black hover:opacity-70 transition-colors">
+                ▶ Assistir
+              </button>
+            )}
+            
             <a
               href="#"
               className="hover:opacity-70 transition-all font-bold md:py-3 py-1 md:px-6 px-3 rounded md:text-xl text-base bg-[#333] text-white"

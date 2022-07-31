@@ -6,8 +6,8 @@ import { Profile } from './pages/Profile';
 export function Router() {
   return(
     <Routes>
-      <Route path="/" element={<Profile />} />
-      <Route path="/browser" element={<Browser />} />
+      <Route path="/" element={<Browser />} />
+      <Route path="/profile" element={<Profile />} />
       <Route path="/movie/:id/:key" element={<MovieTrailer />} />
     </Routes>
   )

@@ -19,7 +19,7 @@ export function Profile() {
           ))}
         </div>
         <Link
-          to="/browser"
+          to="/"
           className="bg-white hover:bg-red-600 transition-colors text-black hover:text-white font-normal text-base py-1 px-4 rounded-lg"
         >
           D O N E
