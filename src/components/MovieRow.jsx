@@ -39,7 +39,6 @@ export function MovieRow({ title, items }) {
           {items !== undefined && items.results.length > 0 ? (
             items.results.map((film, key) => (
               <div key={key} className="inline-block w-[150px] cursor-pointer">
-                {/* item */}
                 <img
                   src={`https://image.tmdb.org/t/p/w300${film.poster_path}`}
                   alt={film.original_title}
