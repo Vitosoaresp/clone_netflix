@@ -14,7 +14,7 @@ export function FeaturedMovie({ item }) {
     >
       <div className="w-[inherit] h-[inherit] bg-gradient-to-t from-smoky-black">
         <div
-          className="w-[inherit] h-[inherit] flex flex-col justify-center pl-8 pb-36 pt-16"
+          className="w-[inherit] h-[inherit] flex flex-col md:justify-center justify-end pl-8 pb-36 pt-16"
           style={{
             background: 'linear-gradient(to right, #111 30%, transparent 70%)',
           }}
@@ -28,19 +28,25 @@ export function FeaturedMovie({ item }) {
               {item.number_of_seasons != 1 && 's'}
             </div>
           </div>
-          <div className="mt-4 md:text-xl text-sm max-w-full mr-7 text-gray-400 md:max-w-[40%]">
+          <div className="mt-4 md:text-xl md:block hidden text-sm max-w-full mr-7 text-gray-400 md:max-w-[40%]">
             {description}
           </div>
-          <div className="mt-4 flex gap-3 items-center">
+          <div className="mt-4 flex gap-3 items-center order-2 md:order-1">
             <a
               href="#"
-              className="font-bold py-3 px-6 rounded md:text-xl text-base bg-white text-black hover:opacity-70 transition-colors"
+              className="hover:opacity-70 transition-all font-bold md:py-3 py-1 md:px-6 px-3 rounded md:text-xl text-base bg-[#333] text-white md:hidden w-20 text-center"
+            >
+              + Info
+            </a>
+            <a
+              href="#"
+              className="font-bold md:py-3 py-1 md:px-6 px-3 rounded md:text-xl text-base bg-white text-black hover:opacity-70 transition-colors"
             >
               ▶ Assistir
             </a>
             <a
               href="#"
-              className="hover:opacity-70 transition-all font-bold py-3 px-6 rounded md:text-xl text-base bg-[#333] text-white"
+              className="hover:opacity-70 transition-all font-bold md:py-3 py-1 md:px-6 px-3 rounded md:text-xl text-base bg-[#333] text-white"
             >
               + Minha Lista
             </a>
