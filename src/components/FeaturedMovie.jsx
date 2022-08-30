@@ -1,11 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import FetchTMDB from '../service/FetchTMDB';
 import { Link } from 'react-router-dom';
+import { context } from '../context/NetflixContext';
+import { Add, HighlightOffOutlined } from '@material-ui/icons';
 
 export function FeaturedMovie({ item }) {
-
   const [movieTrailer, setMovieTrailer] = useState([]);
   const [trailerId, setTrailerId] = useState('');
+
+  const { changeMyList, myList } = useContext(context)
 
   useEffect(() => {
     const getMovieTrailer = async () => {
@@ -19,6 +22,8 @@ export function FeaturedMovie({ item }) {
     }
     getMovieTrailer();
   }, [item]);
+
+  const isOnTheList = myList.find((film) => film.id === item.id);
 
   const description = item.overview.length > 200 ? item.overview.substring(0, 200) + '...' : item.overview;
   const getDate = new Date(item.first_air_date);
@@ -71,12 +76,15 @@ export function FeaturedMovie({ item }) {
               </button>
             )}
             
-            <a
-              href="#"
+            <button
+              type="button"
+              onClick={() => changeMyList(item)}
               className="hover:opacity-70 transition-all font-bold md:py-3 py-1 md:px-6 px-3 rounded md:text-xl text-base bg-[#333] text-white"
             >
-              + Minha Lista
-            </a>
+              {isOnTheList ? (
+                <span><HighlightOffOutlined /> Minha lista</span>
+              ) : (<span><Add /> Minha lista</span>)}
+            </button>
           </div>
           <div className="mt-4 md:text-lg text-sm text-[#999] ">
             <strong>Gêneros: </strong>
