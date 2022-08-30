@@ -7,6 +7,7 @@ export function NetflixContextProvider({ children }) {
   const [listMovies, setListMovies] = useState([]);
   const [featuredData, setFeaturedData] = useState(null);
   const [isTransparentHeader, setIsTransparentHeader] = useState(true);
+  const [myList, setMyList] = useState([]);
 
   useEffect(() => {
     const fetchDataMovies = async () => {
@@ -15,6 +16,18 @@ export function NetflixContextProvider({ children }) {
     };
     fetchDataMovies();
 
+    const scroollListener = () => {
+      if(window.scrollY > 100) {
+        setIsTransparentHeader(false);
+      } else {
+        setIsTransparentHeader(true);
+      }
+    }
+
+    window.addEventListener('scroll', scroollListener);
+    return () => {
+      window.removeEventListener('scroll', scroollListener);
+    }
   }, []);
 
   useEffect(() => {
@@ -29,21 +42,6 @@ export function NetflixContextProvider({ children }) {
       getMovieInfo();
     }
   }, [listMovies]);
-
-  useEffect(() => {
-    const scroollListener = () => {
-      if(window.scrollY > 100) {
-        setIsTransparentHeader(false);
-      } else {
-        setIsTransparentHeader(true);
-      }
-    }
-
-    window.addEventListener('scroll', scroollListener);
-    return () => {
-      window.removeEventListener('scroll', scroollListener);
-    }
-  }, [])
 
   return <context.Provider value={{listMovies, featuredData, isTransparentHeader}}>{children}</context.Provider>;
 }
