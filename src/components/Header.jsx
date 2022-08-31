@@ -1,5 +1,6 @@
 import { ArrowDropDownRounded, Close, Notifications, SearchOutlined } from '@material-ui/icons';
 import { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../assest/logo.png';
 import profile from '../assest/profile1.png';
 import { context } from '../context/NetflixContext';
@@ -16,10 +17,10 @@ export function Header() {
           <img src={logo} alt="Netflix" className="max-h-full" />
         </a>
         <nav className="font-bold text-base md:gap-10 gap-2 md:flex hidden items-center ">
-          <a href="">Início</a>
+          <Link to="/">Início</Link>
           <a href="">Séries</a>
           <a href="">Filmes</a>
-          <a href="">Minha lista</a>
+         <Link to="/myList">Minha Lista</Link>
         </nav>
       </div>
       <div className="h-10 flex items-center gap-3 w-1/2 justify-end">
