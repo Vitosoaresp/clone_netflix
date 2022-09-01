@@ -7,6 +7,7 @@ export function NetflixContextProvider({ children }) {
   const [featuredData, setFeaturedData] = useState(null);
   const [isTransparentHeader, setIsTransparentHeader] = useState(true);
   const [myList, setMyList] = useState(JSON.parse(localStorage.getItem('myListcloneNetflix')) || []);
+  const [movieInDetail, setMovieInDetail] = useState({});
 
   useEffect(() => {
     const fetchDataMovies = async () => {
@@ -61,7 +62,15 @@ export function NetflixContextProvider({ children }) {
 
   return (
     <context.Provider
-      value={{ listMovies, featuredData, isTransparentHeader, changeMyList, myList }}
+      value={{
+        listMovies,
+        featuredData,
+        isTransparentHeader,
+        changeMyList,
+        myList,
+        movieInDetail,
+        setMovieInDetail,
+      }}
     >
       {children}
     </context.Provider>
