@@ -94,4 +94,11 @@ export default {
     const data = await request.json();
     return data;
   },
+  fetchMoviesSimilars: async id => {
+    const request = await fetch(
+      `${API_BASE}/movie/${id}/similar`
+    );
+    const data = await request.json();
+    return data;
+  },
 };
