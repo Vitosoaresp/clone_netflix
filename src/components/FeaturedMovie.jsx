@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import FetchTMDB from '../service/FetchTMDB';
 import { Link } from 'react-router-dom';
 import { context } from '../context/NetflixContext';
-import { Add, HighlightOffOutlined } from '@material-ui/icons';
+import { Add, Check } from '@material-ui/icons';
 
 export function FeaturedMovie({ item }) {
   const [movieTrailer, setMovieTrailer] = useState([]);
@@ -82,7 +82,7 @@ export function FeaturedMovie({ item }) {
               className="hover:opacity-70 transition-all font-bold md:py-3 py-1 md:px-6 px-3 rounded md:text-xl text-base bg-[#333] text-white"
             >
               {isOnTheList ? (
-                <span><HighlightOffOutlined /> Minha lista</span>
+                <span><Check /> Minha lista</span>
               ) : (<span><Add /> Minha lista</span>)}
             </button>
           </div>
