@@ -10,7 +10,7 @@ export function Browser() {
   const { listMovies, featuredData } = useContext(context);
 
   return (
-    <div className="">
+    <>
       <Header />
 
       {featuredData && <FeaturedMovie item={featuredData} />}
@@ -27,7 +27,7 @@ export function Browser() {
       {listMovies.length <= 0 && (
         <Loading />
       )}
-    </div>
+    </>
   );
 }
 
