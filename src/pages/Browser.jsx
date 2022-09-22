@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import * as Dialog from '@radix-ui/react-dialog';
 import { MovieRow } from '../components/MovieRow';
 import { context } from '../context/NetflixContext';
 import { FeaturedMovie } from '../components/FeaturedMovie';
@@ -14,18 +15,15 @@ export function Browser() {
     <div className="relative">
       <Header />
 
-      <section className="flex justify-center items-center ">
-        { movieInDetail && <MovieInDetail />}
-      </section>
-
       {featuredData && <FeaturedMovie item={featuredData} />}
 
-      <section className="mt-[-130px]">
+      <Dialog.Root className="mt-[-190px]">
         {listMovies &&
           listMovies.map((movie, key) => (
             <MovieRow key={key} title={movie.title} items={movie.items} />
           ))}
-      </section>
+        {movieInDetail && <MovieInDetail />}
+      </Dialog.Root>
       
       <Footer />
 
