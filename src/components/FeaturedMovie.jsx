@@ -71,7 +71,7 @@ export function FeaturedMovie({ item }) {
               ▶ Assistir
             </Link>
             ) : (
-              <button disabled={true} className="font-bold md:py-3 py-1 md:px-6 px-3 rounded md:text-xl text-base bg-white text-black hover:opacity-70 transition-colors">
+              <button disabled={true} className="font-bold md:py-3 py-1 md:px-6 px-3 rounded md:text-xl text-base bg-white text-black hover:opacity-70 transition-colors cursor-not-allowed">
                 ▶ Assistir
               </button>
             )}
