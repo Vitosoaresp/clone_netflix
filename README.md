@@ -8,12 +8,12 @@
 
 > Clone esse repositorio 
 ```
-git clone git@github.com:Vitosoaresp/clone-netfix.git
+git clone git@github.com:Vitosoaresp/clone_netfix.git
 ```
 
 > Entre na pasta do projeto e instale as dependências
 ```
-cd clone-netflix/
+cd clone_netflix/
 npm install
 ```
 
