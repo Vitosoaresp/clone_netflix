@@ -32,7 +32,7 @@ export function FeaturedMovie({ item }) {
 
   return (
     <section
-      className="md:h-screen h-[90vh] bg-cover bg-center"
+      className="md:h-screen h-[90vh] bg-cover bg-center -mb-28"
       style={{
         backgroundImage: `url(https://image.tmdb.org/t/p/original/${item.backdrop_path})`,
       }}
