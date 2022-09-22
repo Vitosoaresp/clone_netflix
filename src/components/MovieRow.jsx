@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react';
+import * as Dialog from '@radix-ui/react-dialog';
 import { NavigateBefore, NavigateNext } from '@material-ui/icons';
 import { context } from '../context/NetflixContext';
 
@@ -25,7 +26,7 @@ export function MovieRow({ title, items }) {
   };
 
   return (
-    <div className="mb-[30px] group">
+    <div className="mb-[30px] -mt-20 group">
       <h2 className="m-0 ml-[30px] font-bold text-xl">{title}</h2>
 
       <div className="absolute w-10 h-56 left-0 z-10 flex items-center justify-center backdrop-blur-sm bg-black group-hover:opacity-60 md:opacity-0 opacity-60 cursor-pointer  overflow-hidden transition-all" onClick={handleLeftArrow}>
@@ -41,8 +42,7 @@ export function MovieRow({ title, items }) {
 
           {items !== undefined && items.results.length > 0 ? (
             items.results.map((film, key) => (
-              <button
-                type="button"
+              <Dialog.Trigger
                 key={key}
                 className="inline-block w-[150px] cursor-pointer"
                 onClick={ () => setMovieInDetail(film)}
@@ -52,7 +52,7 @@ export function MovieRow({ title, items }) {
                   alt={film.original_title}
                   className="w-full transform scale-[0.9] hover:scale-[1] transition-all duration-200 ease-in "
                 />
-              </button>
+              </Dialog.Trigger>
             ))
           ) : <div>No results</div> }
         </div>
