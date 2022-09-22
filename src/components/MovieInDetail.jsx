@@ -5,6 +5,7 @@ import { context } from "../context/NetflixContext";
 
 export function MovieInDetail() {
   const [renderMovie, setRenderMovie] = useState(undefined);
+
   const { movieInDetail, setMovieInDetail } = useContext(context);
 
   const getTrailer = async () => {
