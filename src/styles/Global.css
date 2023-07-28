@@ -8,4 +8,9 @@
 
 body {
   @apply bg-smoky-black text-white font-roboto;
+  padding-right: 0 !important;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
 }

@@ -1,8 +1,8 @@
-import { useState, useEffect, useContext } from 'react';
-import FetchTMDB from '../service/FetchTMDB';
+import { Add, Check } from '@material-ui/icons';
+import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { context } from '../context/NetflixContext';
-import { Add, Check } from '@material-ui/icons';
+import FetchTMDB from '../service/FetchTMDB';
 
 export function FeaturedMovie({ item }) {
   const [movieTrailer, setMovieTrailer] = useState([]);
@@ -32,14 +32,14 @@ export function FeaturedMovie({ item }) {
 
   return (
     <section
-      className="md:h-screen h-[90vh] bg-cover bg-center -mb-28"
+      className="md:h-screen h-[90vh] bg-cover bg-center md:-mb-52 mb-10"
       style={{
         backgroundImage: `url(https://image.tmdb.org/t/p/original/${item.backdrop_path})`,
       }}
     >
       <div className="w-[inherit] h-[inherit] bg-gradient-to-t from-smoky-black">
         <div
-          className="w-[inherit] h-[inherit] flex flex-col md:justify-center justify-end pl-8 pb-36 pt-16"
+          className="w-[inherit] h-[inherit] flex flex-col md:justify-center justify-end pl-8  pt-16"
           style={{
             background: 'linear-gradient(to right, #111 30%, transparent 70%)',
           }}
@@ -65,17 +65,17 @@ export function FeaturedMovie({ item }) {
             </a>
             {trailerId !== null ? (
               <Link
-              to={`movie/${movieTrailer.id}/${trailerId}`}
-              className="font-bold md:py-3 py-1 md:px-6 px-3 rounded md:text-xl text-base bg-white text-black hover:opacity-70 transition-colors"
-            >
-              ▶ Assistir
-            </Link>
+                to={`movie/${movieTrailer.id}/${trailerId}`}
+                className="font-bold md:py-3 py-1 md:px-6 px-3 rounded md:text-xl text-base bg-white text-black hover:opacity-70 transition-colors"
+              >
+                ▶ Assistir
+              </Link>
             ) : (
               <button disabled={true} className="font-bold md:py-3 py-1 md:px-6 px-3 rounded md:text-xl text-base bg-white text-black hover:opacity-70 transition-colors cursor-not-allowed">
                 ▶ Assistir
               </button>
             )}
-            
+
             <button
               type="button"
               onClick={() => changeMyList(item)}
