@@ -1,8 +1,8 @@
 import { Create } from "@material-ui/icons";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import logo from '../assest/logo.png';
 import ProfilesContext from "../context/ProfilesContext";
+import logo from '/assest/logo.png';
 
 export function Profile() {
   const { profiles, handleChangeProfile, selectedProfile } = useContext(ProfilesContext);

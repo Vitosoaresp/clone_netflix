@@ -1,4 +1,4 @@
-import logo from '../assest/logo.png';
+import logo from '/assest/logo.png';
 
 export function Loading() {
   return (
