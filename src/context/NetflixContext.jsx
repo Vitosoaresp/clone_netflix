@@ -5,9 +5,14 @@ export const context = createContext();
 export function NetflixContextProvider({ children }) {
   const [listMovies, setListMovies] = useState([]);
   const [featuredData, setFeaturedData] = useState(null);
-  const [isTransparentHeader, setIsTransparentHeader] = useState(true);
-  const [myList, setMyList] = useState(JSON.parse(localStorage.getItem('myListcloneNetflix')) || []);
+  const [myList, setMyList] = useState([]);
   const [movieInDetail, setMovieInDetail] = useState(undefined);
+
+  const getListToStorage = () => {
+    const list = localStorage.getItem("myListcloneNetflix");
+    const parsedList = list ? JSON.parse(list) : [];
+    setMyList(parsedList);
+  }
 
   useEffect(() => {
     const fetchDataMovies = async () => {
@@ -15,19 +20,7 @@ export function NetflixContextProvider({ children }) {
       setListMovies(data);
     };
     fetchDataMovies();
-
-    const scroollListener = () => {
-      if (window.scrollY > 100) {
-        setIsTransparentHeader(false);
-      } else {
-        setIsTransparentHeader(true);
-      }
-    };
-
-    window.addEventListener("scroll", scroollListener);
-    return () => {
-      window.removeEventListener("scroll", scroollListener);
-    };
+    getListToStorage();
   }, []);
 
   useEffect(() => {
@@ -65,7 +58,6 @@ export function NetflixContextProvider({ children }) {
       value={{
         listMovies,
         featuredData,
-        isTransparentHeader,
         changeMyList,
         myList,
         movieInDetail,
